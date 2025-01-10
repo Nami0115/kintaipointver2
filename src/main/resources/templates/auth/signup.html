@@ -8,13 +8,13 @@
 	</head>
 	
 	<body>
-		<div class="kintaipoint-wrapper">
+		<div class="samuraitravel-wrapper">
 			<!-- ヘッダー 
             <div th:replace="~{fragment :: header}"></div>
             -->
             
             <main>
-            	<div class="container pt-4 pb-5 container pt-4 pb-5 kintaipoint-container">
+            	<div class="container pt-4 pb-5 samuraitravel-container">
             		<div class="row justify-content-center">
             			<div class="col-xl-5 col-lg-6 col-md-8">
             				<h1 class="mb-4 text-center">（仮）会員登録</h1>
@@ -61,7 +61,7 @@
             						</div>
             						<div class="col-md-7">
                                     	<div th:if="${#fields.hasErrors('postalCode')}" class="text-danger small mb-2" th:errors="*{postalCode}"></div>
-                                        <input type="text" class="form-control" th:field="*{postalCode}" placeholder="123-4567">
+                                        <input type="text" class="form-control" th:field="*{postalCode}" placeholder="012-3456">
                                     </div>
             					</div>
             					
@@ -76,7 +76,7 @@
             						</div>
             						<div class="col-md-7">
                                         <div th:if="${#fields.hasErrors('address')}" class="text-danger small mb-2" th:errors="*{address}"></div>
-                                        <input type="text" class="form-control" th:field="*{address}" placeholder="東京都足立区栗田1038">  
+                                        <input type="text" class="form-control" th:field="*{address}" placeholder="長野県長野市栗田1038">  
                                     </div>
             					</div>
             					
@@ -121,7 +121,7 @@
             						</div>
             						<div class="col-md-7">
                                         <div th:if="${#fields.hasErrors('password')}" class="text-danger small mb-2" th:errors="*{password}"></div>
-                                        <input type="password" class="form-control" th:field="*{password}" placeholder="パスワード">
+                                        <input type="password" class="form-control" th:field="*{password}">
                                     </div>
             					</div>
             					
@@ -136,12 +136,12 @@
             						</div>
             						<div class="col-md-7">
                                         <div th:if="${#fields.hasErrors('passwordConfirmation')}" class="text-danger small mb-2" th:errors="*{passwordConfirmation}"></div>
-                                        <input type="password" class="form-control" th:field="*{passwordConfirmation}" placeholder="パスワード（確認用）">
+                                        <input type="password" class="form-control" th:field="*{passwordConfirmation}">
                                     </div>
             					</div>
             					
             					<div class="form-group d-flex justify-content-center my-4">
-                                    <button type="submit" class="#">登録</button>
+                                    <button type="submit" class="btn text-white shadow-sm w-50 samuraitravel-btn">登録</button>
                                 </div>
             				</form>
             				
