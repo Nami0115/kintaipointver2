@@ -5,31 +5,31 @@ import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.example.kintaipointver2.entity.Employee;
+import com.example.kintaipointver2.entity.User;
 
 public class UserDetailsImpl implements UserDetails {
-	private final Employee employee;
+	private final User user;
 	private final Collection<GrantedAuthority> authorities;
 	
-	public UserDetailsImpl(Employee employee, Collection<GrantedAuthority> authorities) {
-		this.employee = employee;
+	public UserDetailsImpl(User user, Collection<GrantedAuthority> authorities) {
+		this.user = user;
 		this.authorities = authorities;
 	}
 	
-	public Employee getEmployee() {
-		return employee;
+	public User getUser() {
+		return user;
 	}
 	
 	//ハッシュ化済みのパスワードを返す
 	@Override
 	public String getPassword() {
-		return employee.getPassword();
+		return user.getPassword();
 	}
 	
 	//ログイン時に利用するユーザー名（メールアドレス）を返す
 	@Override
 	public String getUsername() {
-		return employee.getEmail();
+		return user.getEmail();
 	}
 	
 	//ロールのコレクションを返す
@@ -59,6 +59,6 @@ public class UserDetailsImpl implements UserDetails {
 	//ユーザーの有効性＝メール認証の機能
 	@Override
 	public boolean isEnabled() {
-		return employee.getEnabled();
+		return user.getEnabled();
 	}
 }

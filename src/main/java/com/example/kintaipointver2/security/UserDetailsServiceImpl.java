@@ -10,25 +10,25 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.example.kintaipointver2.entity.Employee;
-import com.example.kintaipointver2.repository.EmployeeRepository;
+import com.example.kintaipointver2.entity.User;
+import com.example.kintaipointver2.repository.UserRepository;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
-	private final EmployeeRepository employeeRepository;
+	private final UserRepository userRepository;
 	
-	public UserDetailsServiceImpl(EmployeeRepository employeeRepository) {
-		this.employeeRepository = employeeRepository;
+	public UserDetailsServiceImpl(UserRepository userRepository) {
+		this.userRepository = userRepository;
 	}
 	
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		try {
-			Employee employee = employeeRepository.findByEmail(email);
-			String userRoleName = employee.getRole().getName();
+			User user = userRepository.findByEmail(email);
+			String userRoleName = user.getRole().getName();
 			Collection<GrantedAuthority> authorities = new ArrayList<>();
 			authorities.add(new SimpleGrantedAuthority(userRoleName));
-			return new UserDetailsImpl(employee, authorities);
+			return new UserDetailsImpl(user, authorities);
 		} catch (Exception e) {
 			throw new UsernameNotFoundException("ユーザーが見つかりません");
 		}
