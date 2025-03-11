@@ -25,16 +25,15 @@
 	
 	<body>
 		<!--ヘッダーの部品化-->
-		<div th:fragment="header" th:remove="tag">
-			<!--
+		<div th:fragment="header" th:remove="tag">			
 			<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm kintaipoint-navbar">
 				<div class="container kintaipoint-container">
 					<a class="navbar-brand" th:href="@{/}">
-						<img>
+						<button type="submit" class="btn text-black shadow-sm w-100">トップへ</button>
+						<!-- <img> -->
 					</a>					
 				</div>				
-			</nav>
-			-->
+			</nav>			
 		</div>
 		
 		<!--フッターの部品化-->
